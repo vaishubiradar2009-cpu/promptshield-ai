@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>PromptShield AI</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <header class="navbar">
+    <div class="logo">
+      <span class="logo-icon">🛡️</span>
+      PromptShield <span>AI</span>
+    </div>
+
+    <div class="nav-badge">
+      AI Prompt Engineering
+    </div>
+  </header>
+
+
+  <main>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+
+      <div class="hero-badge">
+        ✦ Turn ordinary prompts into powerful prompts
+      </div>
+
+      <h1>
+        Build Better Prompts.<br>
+        <span>Get Better AI.</span>
+      </h1>
+
+      <p>
+        Transform vague ideas into clear, structured and
+        high-quality AI prompts in seconds.
+      </p>
+
+    </section>
+
+
+    <!-- PROMPT BUILDER -->
+    <section class="builder-section">
+
+      <div class="section-heading">
+        <div>
+          <span class="small-label">01 — INPUT</span>
+          <h2>Tell us what you want</h2>
+        </div>
+      </div>
+
+
+      <div class="builder-card">
+
+        <label for="userPrompt">
+          Your rough prompt
+        </label>
+
+        <textarea
+          id="userPrompt"
+          placeholder="Example: Teach me Python loops..."
+        ></textarea>
+
+
+        <div class="options-grid">
+
+          <div class="input-group">
+            <label for="goal">
+              Goal
+            </label>
+
+            <select id="goal">
+              <option value="Learn">Learn</option>
+              <option value="Create">Create</option>
+              <option value="Solve">Solve</option>
+              <option value="Analyze">Analyze</option>
+              <option value="Explain">Explain</option>
+              <option value="Plan">Plan</option>
+            </select>
+          </div>
+
+
+          <div class="input-group">
+            <label for="detail">
+              Detail level
+            </label>
+
+            <select id="detail">
+              <option value="Beginner">Beginner</option>
+              <option value="Intermediate">Intermediate</option>
+              <option value="Advanced">Advanced</option>
+              <option value="Expert">Expert</option>
+            </select>
+          </div>
+
+        </div>
+
+
+        <div class="input-group">
+
+          <label for="constraints">
+            Constraints
+          </label>
+
+          <input
+            type="text"
+            id="constraints"
+            placeholder="Example: Simple English, examples, step-by-step"
+          >
+
+        </div>
+
+
+        <button id="buildPromptBtn" class="primary-btn">
+          <span>BUILD POWERFUL PROMPT</span>
+          <span>→</span>
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- SCORE SECTION -->
+    <section id="scoreSection" class="result-section hidden">
+
+      <div class="section-heading">
+
+        <div>
+          <span class="small-label">02 — ANALYSIS</span>
+          <h2>Prompt Score</h2>
+        </div>
+
+      </div>
+
+
+      <div class="score-card">
+
+        <div class="score-main">
+
+          <div class="score-circle">
+            <span id="scoreValue">0</span>
+            <small>/100</small>
+          </div>
+
+          <div>
+            <h3 id="scoreTitle">
+              Prompt Analysis
+            </h3>
+
+            <p id="scoreMessage">
+              Your prompt has been analyzed.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="score-bars">
+
+          <div class="score-item">
+            <div>
+              <span>Clarity</span>
+              <strong id="clarityScore">0</strong>
+            </div>
+
+            <div class="progress">
+              <div id="clarityBar"></div>
+            </div>
+          </div>
+
+
+          <div class="score-item">
+            <div>
+              <span>Context</span>
+              <strong id="contextScore">0</strong>
+            </div>
+
+            <div class="progress">
+              <div id="contextBar"></div>
+            </div>
+          </div>
+
+
+          <div class="score-item">
+            <div>
+              <span>Constraints</span>
+              <strong id="constraintScore">0</strong>
+            </div>
+
+            <div class="progress">
+              <div id="constraintBar"></div>
+            </div>
+          </div>
+
+
+          <div class="score-item">
+            <div>
+              <span>Structure</span>
+              <strong id="structureScore">0</strong>
+            </div>
+
+            <div class="progress">
+              <div id="structureBar"></div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- OPTIMIZED PROMPT -->
+    <section id="optimizedSection" class="result-section hidden">
+
+      <div class="section-heading">
+
+        <div>
+          <span class="small-label">03 — OPTIMIZATION</span>
+          <h2>Your optimized prompt</h2>
+        </div>
+
+        <button id="copyBtn" class="secondary-btn">
+          COPY PROMPT
+        </button>
+
+      </div>
+
+
+      <div class="prompt-output">
+
+        <div class="output-header">
+          <span class="status-dot"></span>
+          PROMPTSHIELD OPTIMIZED
+        </div>
+
+        <pre id="optimizedPrompt"></pre>
+
+      </div>
+
+
+      <button id="generateBtn" class="primary-btn generate-btn">
+        <span>GENERATE AI RESPONSE</span>
+        <span>✦</span>
+      </button>
+
+    </section>
+
+
+    <!-- AI RESPONSE -->
+    <section id="responseSection" class="result-section hidden">
+
+      <div class="section-heading">
+
+        <div>
+          <span class="small-label">04 — AI OUTPUT</span>
+          <h2>AI Response</h2>
+        </div>
+
+      </div>
+
+
+      <div class="response-card">
+
+        <div class="response-header">
+          <span class="status-dot"></span>
+          PROMPTSHIELD AI
+        </div>
+
+        <div id="aiResponse">
+          Your AI response will appear here.
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- FEATURES -->
+    <section class="features-section">
+
+      <div class="section-heading centered">
+
+        <span class="small-label">
+          WHY PROMPTSHIELD
+        </span>
+
+        <h2>
+          From vague to <span>valuable.</span>
+        </h2>
+
+      </div>
+
+
+      <div class="features-grid">
+
+        <div class="feature-card">
+
+          <div class="feature-icon">🧠</div>
+
+          <h3>Smart Structure</h3>
+
+          <p>
+            Converts unclear ideas into structured
+            instructions that AI can understand better.
+          </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+          <div class="feature-icon">📊</div>
+
+          <h3>Prompt Score</h3>
+
+          <p>
+            Understand exactly how strong your prompt is
+            across clarity, context, constraints and structure.
+          </p>
+
+        </div>
+
+
+        <div class="feature-card">
+
+          <div class="feature-icon">⚡</div>
+
+          <h3>Instant Results</h3>
+
+          <p>
+            Build an improved prompt and generate an AI
+            response from one simple interface.
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+
+    <div>
+      🛡️ PromptShield AI
+    </div>
+
+    <p>
+      Built for the future of AI interaction.
+    </p>
+
+  </footer>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
