@@ -1,79 +1,107 @@
-# 🛡️ PromptShield AI
+# 🌉 LifeBridge AI
 
-> Transform vague ideas into clear, structured and powerful AI prompts.
+### From confusing situations to clear actions.
 
-PromptShield AI is an AI-powered prompt engineering tool that helps users improve their prompts before sending them to an AI model.
+LifeBridge AI is an AI-powered decision-support application that transforms messy real-world situations into a structured, understandable action plan.
 
-## 🚀 What Problem Does It Solve?
+Instead of simply generating an answer, LifeBridge follows a four-stage process:
 
-Many users know what they want to ask an AI, but their prompts are often too vague or incomplete.
+**UNDERSTAND → VERIFY → PRIORITIZE → ACT**
 
-For example:
+---
 
-**Before:**
-> teach me python loops
+## 🚀 What LifeBridge AI Does
 
-PromptShield analyzes the prompt and transforms it into a structured prompt containing:
+A user describes a situation in natural language.
 
-- Role
-- Primary Goal
-- User Request
-- Audience / Detail Level
-- Instructions
-- User Constraints
-- Output Format
-- Quality Check
+LifeBridge AI then:
 
-This helps users create more precise and useful AI instructions.
+1. 🧠 Understands the situation
+2. 🔎 Separates supported information from information that needs confirmation
+3. 🎯 Determines the level of priority
+4. ✅ Generates practical actions
+5. ⭐ Identifies the single best next action
+6. 💡 Explains why that action was selected
+
+---
 
 ## ✨ Key Features
 
-### 📊 Prompt Score
-Evaluates the original prompt using four dimensions:
+### 🧠 Situation Understanding
+Converts a messy user description into a clear summary.
 
-- Clarity
-- Context
-- Constraints
-- Structure
+### 🔎 Verification Layer
+Separates information into:
 
-The tool calculates an overall prompt quality score out of 100.
+- Supported information
+- Information that needs confirmation
 
-### 🧠 Smart Prompt Optimization
-Converts a rough user request into a structured AI-ready prompt.
+LifeBridge does not pretend to perform external verification when it has not actually done so.
 
-### ⚡ AI Response Generation
-The optimized prompt can be sent directly to Google's Gemini AI to generate a response.
+### 🎯 Priority Engine
 
-### 📋 Copy Prompt
-Users can copy the optimized prompt with one click.
+Each situation receives a priority level:
 
-### 🔐 Secure API Key Handling
-The Gemini API key is stored as an environment variable and is not included in the public source code.
+- 🟢 Low
+- 🟡 Medium
+- 🟠 High
+- 🔴 Urgent
 
-## 🏗️ Technology Stack
+Priority is based on practical urgency and potential consequences.
 
-- HTML
-- CSS
-- JavaScript
-- Python
-- Flask
-- Google Gemini API
-- Render
-- GitHub
+### ⚡ Action Bridge
 
-## 🔄 How It Works
+Instead of stopping at an AI-generated explanation, LifeBridge converts the analysis into practical actions.
+
+### ⭐ Next Best Action
+
+LifeBridge identifies the single most useful immediate next step.
+
+### 💡 Why This Action?
+
+The application explains why the recommended next action was selected.
+
+### 📊 Confidence
+
+Confidence represents how confident the AI is that it understood and structured the situation correctly.
+
+---
+
+## 🏗️ Architecture
 
 ```text
-User's Rough Prompt
-        ↓
-Prompt Analysis
-        ↓
-Prompt Score
-        ↓
-Prompt Optimization
-        ↓
-Structured AI Prompt
-        ↓
-Gemini AI
-        ↓
-AI Response
+                    USER
+                      │
+                      ▼
+             ┌─────────────────┐
+             │  LifeBridge UI  │
+             │ Text + Context  │
+             └────────┬────────┘
+                      │
+                      ▼
+               ┌─────────────┐
+               │   Gemini AI │
+               └──────┬──────┘
+                      │
+                      ▼
+          ┌─────────────────────────┐
+          │   LifeBridge Engine     │
+          │                         │
+          │ Understand              │
+          │ Verify                  │
+          │ Prioritize              │
+          │ Act                     │
+          └────────────┬────────────┘
+                       │
+                       ▼
+              ┌─────────────────┐
+              │   Action Card   │
+              │                 │
+              │ Priority        │
+              │ Summary         │
+              │ Facts           │
+              │ Verification    │
+              │ Actions         │
+              │ Next Action     │
+              │ Why Action?     │
+              └─────────────────┘
